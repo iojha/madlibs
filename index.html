@@ -1,17 +1,22 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="">
+<html lang="en" ng-app="myApp">
 <head>
 	<meta charset="UTF-8">
 	<title>mad libs yo</title>
-	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.10/angular.min.js"></script>
-	<script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+	
+	<!--Style Sheets-->
 	<link rel="stylesheet" type="text/css" href="style.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+	<!--Scripts-->
+	<script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.10/angular.min.js"></script>
+	<script type="text/javascript" src="./script.js"></script>
 
 </head>
 
 <body>
-	<div class="container">
+	<div class="container" ng-controller="myCtrl">
 		<section="header section">
 			<div class="row">
 				<div class="col-sm-4" id="logo">
@@ -33,7 +38,7 @@
 				<div class="row">
 					<input type="text" placeholder="female name" ng-model="femaleName" >
 					<input type="text" placeholder="job title" ng-model="jobTitle">
-					<input type="text" placeholder="tedious-task">
+					<input type="text" placeholder="tedious task" ng-model="tediousTask" >
 				</div>
 				<div class="row">
 					<input type="text" placeholder="dt" ng-model="dirtyTask">
