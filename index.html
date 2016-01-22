@@ -11,6 +11,7 @@
 	<!--Scripts-->
 	<script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
 	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.10/angular.min.js"></script>
+	<script type="text/javascript" src="https://code.angularjs.org/1.4.8/angular-messages.js"></script>
 	<script type="text/javascript" src="./script.js"></script>
 
 </head>
@@ -33,26 +34,31 @@
 				</div>
 			</div>
 		</section>
-		<section class="input-panel section">
+		<section class="input-panel section" ng-show="inputShow
+		!==true">
 			<div class="col-sm-6 col-sm-offset-3">
-				<div class="row">
-					<input type="text" placeholder="female name" ng-model="femaleName" >
-					<input type="text" placeholder="job title" ng-model="jobTitle">
-					<input type="text" placeholder="tedious task" ng-model="tediousTask" >
-				</div>
-				<div class="row">
-					<input type="text" placeholder="dt" ng-model="dirtyTask">
-					<input type="text" placeholder="celebrity" ng-model="celebrity">
-					<input type="text" placeholder="useless skill" ng-model="uselessSkill">
-				</div>
-				<div class="row">
-					<input type="text" placeholder="adjective" ng-model="adjective">
-					<input type="text" placeholder="obnoxious celebrity" ng-model="obnoxiousCelebrity">
-					<input type="text" placeholder="huge number" ng-model="hugeNumber">
-				</div>
+				<form name="form" novalidate ng-submit="submit()">
+					<div class="row">
+
+						<!--Input-->
+						<input type="text" placeholder="female name" name="femaleName" ng-model="femaleName" required />
+
+						<!--Error Msg-->
+						<div ng-if="form.$submitted" ng-messages="form.femaleName.$error">
+							<span class="error" ng-message="required">Required field!</span>
+						</div>
+
+					</div>
+					
+						<!--Submit-->
+					<div class="row">
+						<button class="btn btn-primary pull-right" type="submit">Submit</button>
+					</div>
+
+				</form>
 			</div>				
 		</section>
-		<section class="result section">
+		<section class="result section" ng-show="resultShow">
 			<div class="col-md-12">
 				<p>{{ femaleName }} was a {{ jobTitle }} who loved technology. Although she loved parts of her job, she absolutely hated  {{ tediousTask }} and {{ dirtyTask }}. So, {{ femaleName }} met with her life mentor {{ celebrity }} who told her to learn how to {{ uselessSkill }} with Thinkful. Thinkful didn't offer a course on {{ uselessSkill }} so she studied programming instead. <br /><br />
 				What a great decision! With her new skills, {{femaleName}} built a(n) {{ adjective }} robot named {{ obnoxiousCelebrity }} that not only loved {{ dirtyTask }} but did it {{ hugeNumber }} faster. </p>

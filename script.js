@@ -1,12 +1,26 @@
-angular.module('myApp', [])
+angular.module('myApp', ['ngMessages'])
 	   .controller('myCtrl', function($scope) {
-        $scope.femaleName = "Some Name";
-        $scope.jobTitle = "Some Job Title";
-        $scope.dirtyTask = "Some Task";
-        $scope.uselessSkill = "Some Useless Skill";
-        $scope.celebrity = "Some Celebrity";
-        $scope.obnoxiousCelebrity = "Some Obnoxious Celebrity";
-        $scope.adjective = "Some Adjective";
-        $scope.hugeNumber = "Some Huge Number";
-        $scope.tediousTask = "Some Tedious Task";
+        // $scope.femaleName = "";
+        // $scope.jobTitle = "";
+        // $scope.dirtyTask = "";
+        // $scope.uselessSkill = "";
+        // $scope.celebrity = "";
+        // $scope.obnoxiousCelebrity = "";
+        // $scope.adjective = "";
+        // $scope.hugeNumber = "";
+        // $scope.tediousTask = "";
+
+        //show and hide
+        $scope.inputShow = "true";
+        $scope.resultShow="false";
+
+        $scope.submit = function(){
+            if( $scope.form.$invalid ) {
+                console.log('The form is not valid');
+            } else {
+                console.log('The form is valid');
+            }
+            $scope.resultShow="true";
+            $scope.inputShow="false";
+        }
     });
